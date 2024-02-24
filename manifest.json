@@ -13,11 +13,9 @@
   "manifest_version": 3,
   "permissions": [
     "sidePanel",
-    "activeTab",
-    "scripting",
     "tabs"
   ],
   "side_panel": {
-    "default_path": "sidepanel.html"
+    "default_path": "index.html"
   }
 }

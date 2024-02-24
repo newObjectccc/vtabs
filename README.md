@@ -1,34 +1,16 @@
 # vtabs
 
-this is chrome extension which help you rebuild your horizental tab list to a vertical list in your side panel.
+this is chrome extension which help you rebuild your horizental tab list to a vertical list in your side panel, it's base on React, TypeScript, Vite.
 
-## React + TypeScript + Vite
+## Usage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## TODO
 
-Currently, two official plugins are available:
+vite v5.1.4 building for production...
+✓ 33 modules transformed.
+dist/index.html                   0.38 kB │ gzip:  0.25 kB
+dist/assets/react-CHdo91hT.svg    4.13 kB │ gzip:  2.05 kB
+dist/assets/index-DiwrgTda.css    1.39 kB │ gzip:  0.72 kB
+dist/assets/index-C7lZPRrh.js   142.63 kB │ gzip: 45.83 kB
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+thanks to React framework, the js bundle has 142kb at least. i think its too big, so i considering to change the lightly framework.
