@@ -1,5 +1,7 @@
 # chrome-extension-boilerplate
 
+## Chrome Extension (MV3) Boilerplate with React18 & TypeScript & Vite & NextUI
+
 this is chrome extension which help you rebuild your horizental tab list to a vertical list in your side panel, it's base on React, TypeScript, Vite.
 
 ## Usage
