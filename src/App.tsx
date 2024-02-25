@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     console.log('App rendereds', chrome.tabs);
-    // test chrome api
+    // test chrome api .
     chrome.tabs.query({ currentWindow: true }, (tabs) => {
       console.log('🚀 ~ chrome.tabs.query ~ tabs:', tabs);
     });
