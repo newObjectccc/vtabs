@@ -7,8 +7,10 @@ this is chrome extension which help you rebuild your horizental tab list to a ve
 ## Feature
 
 - ✨ Watch your code and build your extension code to dist.
-- 💥 Fast Vite@5.1
-- 💫
+- 💥 Fast Vite@5.1.
+- 💫 Beauty UI library NextUI@2.2.
+- 🧨 This boilerplate adopts Manifest V3.
+- 💖 TypeScript supported.
 
 ## Usage
 
