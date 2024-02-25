@@ -1,28 +1,26 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect, useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     console.log('App rendereds', chrome.tabs);
-    chrome.tabs.query({currentWindow: true}, (tabs) => {
-      console.log("🚀 ~ chrome.tabs.query ~ tabs:", tabs)
+    chrome.tabs.query({ currentWindow: true }, (tabs) => {
+      console.log('🚀 ~ chrome.tabs.query ~ tabs:', tabs);
     });
-  }, [])
-  
+  }, []);
+
   return (
     <>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
