@@ -4,7 +4,19 @@
 
 this is chrome extension which help you rebuild your horizental tab list to a vertical list in your side panel, it's base on React, TypeScript, Vite.
 
+## Feature
+
+- ✨ Watch your code and build your extension code to dist.
+- 💥 Fast Vite@5.1
+- 💫
+
 ## Usage
+
+1. ```git clone git@github.com:newObjectccc/chrome-extension-boilerplate.git```
+2. ```pnpm install```
+3. ```pnpm start```
+
+When the chrome launched, type "chrome://extensions" into the chrome address bar, then tap the Load unpacked button, and select the dist folder.
 
 ## TODO
 
