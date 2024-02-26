@@ -1,26 +1,72 @@
+import { Image } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [tabList, setTabList] = useState<chrome.tabs.Tab[]>();
+
+  const changeActiveTab = (tabId: number) => {
+    chrome.tabs.update(tabId, { active: true });
+  };
+
+  const removeTab = (tabId: number) => {
+    chrome.tabs.remove(tabId);
+  };
 
   useEffect(() => {
-    console.log('App rendereds', chrome.tabs);
-    // test chrome api .
-    chrome.tabs.query({ currentWindow: true }, (tabs) => {
-      console.log('🚀 ~ chrome.tabs.query ~ tabs:', tabs);
+    const tabs = chrome.tabs;
+    tabs.query({ currentWindow: true }, (tabs) => {
+      setTabList(tabs);
     });
+
+    const onTabsUpdated = (_tabId: number, changeInfo: chrome.tabs.TabChangeInfo) => {
+      if (changeInfo.status === 'complete') {
+        tabs.query({ currentWindow: true }, (tabs) => {
+          console.log('🚀 ~ chrome.tabs.query ~ tabs:', tabs);
+          setTabList(tabs);
+        });
+      }
+    };
+    const onTabsRemoved = (_tabId: number) => {
+      setTabList((prev) => prev?.filter((tab) => tab.id !== _tabId));
+    };
+    const onTabsActived = () => {
+      tabs.query({ currentWindow: true }, (tabs) => {
+        setTabList(tabs);
+      });
+    };
+
+    tabs.onRemoved.addListener(onTabsRemoved);
+    tabs.onUpdated.addListener(onTabsUpdated);
+    tabs.onActivated.addListener(onTabsActived);
+
+    return () => {
+      tabs.onUpdated.removeListener(onTabsUpdated);
+      tabs.onRemoved.removeListener(onTabsRemoved);
+    };
   }, []);
 
   return (
-    <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-    </>
+    <ul className="p-2 h-lvh w-lvw text-slate-50 bg-[#3B3B3B]">
+      {tabList?.map((tab) => (
+        <li
+          className={`flex flex-row items-center flex-1 rounded-md mb-1 p-2 hover:bg-[#454545] ${tab.active ? 'bg-[#4D4D4D] shadow-md shadow-slate-950' : ''}`}
+          onClick={() => changeActiveTab(tab.id!)}
+        >
+          <Image
+            alt="nextui logo"
+            height={18}
+            radius="sm"
+            src={tab.url?.startsWith('http') ? tab.favIconUrl : `images/icon-48.png`}
+            width={18}
+          />
+          <div className={`ml-2 flex-1 pr-2 cursor-default ${tab.active ? '' : 'text-blur'}`}>
+            {tab.title}
+          </div>
+          <div className="close" onClick={() => removeTab(tab.id!)}></div>
+        </li>
+      ))}
+    </ul>
   );
 }
 
