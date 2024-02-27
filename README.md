@@ -2,6 +2,8 @@
 
 ## Chrome Extension (MV3) Boilerplate with React18 & TypeScript & Vite & NextUI
 
+English | [简体中文](https://github.com/newObjectccc/vtabs/blob/main/README-zh-Hans.md)
+
 ## Feature
 
 - ✨ Watch your code and build your extension code to dist.
