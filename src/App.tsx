@@ -52,13 +52,7 @@ function App() {
           className={`flex flex-row items-center flex-1 rounded-md mb-1 p-2 hover:bg-[#454545] ${tab.active ? 'bg-[#4D4D4D] shadow-md shadow-slate-950' : ''}`}
           onClick={() => changeActiveTab(tab.id!)}
         >
-          <Image
-            alt="nextui logo"
-            height={18}
-            radius="sm"
-            src={tab.url?.startsWith('http') ? tab.favIconUrl : `images/icon-48.png`}
-            width={18}
-          />
+          <Image alt="nextui logo" height={18} radius="sm" src={tab.favIconUrl} width={18} />
           <div className={`ml-2 flex-1 pr-2 cursor-default ${tab.active ? '' : 'text-blur'}`}>
             {tab.title}
           </div>
