@@ -22,7 +22,6 @@ function App() {
     const onTabsUpdated = (_tabId: number, changeInfo: chrome.tabs.TabChangeInfo) => {
       if (changeInfo.status === 'complete') {
         tabs.query({ currentWindow: true }, (tabs) => {
-          console.log('🚀 ~ chrome.tabs.query ~ tabs:', tabs);
           setTabList(tabs);
         });
       }
