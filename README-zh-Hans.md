@@ -12,7 +12,7 @@
 
 ## 使用说明
 
-1. ```git clone git@github.com:newObjectccc/chrome-extension-boilerplate.git```
+1. ```git clone git@github.com:newObjectccc/vtabs.git```
 2. ```pnpm install```
 3. ```pnpm start```
 
