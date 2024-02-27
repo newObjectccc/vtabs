@@ -1,7 +1,13 @@
 {
-  "name": "vtabs",
+  "name": "Vtabs",
   "version": "1.0.0",
-  "description": "vtabs provide the vertical tabs for the chrome browser",
+  "description": "Vtabs provide the vertical tabs for the chrome browser",
+  "action": {
+    "default_title": "Vtabs"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "host_permissions": ["http://*/*", "https://*/*"],
   "icons": {
     "48": "images/icon-48.png",
