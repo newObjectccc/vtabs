@@ -42,6 +42,7 @@ function App() {
     return () => {
       tabs.onUpdated.removeListener(onTabsUpdated);
       tabs.onRemoved.removeListener(onTabsRemoved);
+      tabs.onActivated.removeListener(onTabsActived);
     };
   }, []);
 
