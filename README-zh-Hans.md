@@ -20,6 +20,14 @@
 
 请注意！当代码更新后，dist代码虽然重新编译了，但是在chrome://extensions界面仍然需要手动刷新插件。
 
+## Screenshot
+
+![1](https://github.com/newObjectccc/vtabs/screenshot/1.png)
+![2](https://github.com/newObjectccc/vtabs/screenshot/2.png)
+![3](https://github.com/newObjectccc/vtabs/screenshot/3.png)
+![4](https://github.com/newObjectccc/vtabs/screenshot/4.png)
+![5](https://github.com/newObjectccc/vtabs/screenshot/5.png)
+
 ## TODO
 
 vite v5.1.4 building for production...
