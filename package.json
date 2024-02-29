@@ -2,6 +2,8 @@
   "name": "vtabs",
   "private": true,
   "version": "1.0.0",
+  "icon": "",
+  "description": "",
   "type": "module",
   "scripts": {
     "start": "npx open-cli chrome://extensions chrome && tsc && vite build",
