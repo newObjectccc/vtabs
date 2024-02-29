@@ -20,6 +20,14 @@ English | [简体中文](https://github.com/newObjectccc/vtabs/blob/main/README-
 
 When the chrome launched, type "chrome://extensions" into the chrome address bar, then tap the Load unpacked button, and select the dist folder.
 
+## Screenshot
+
+![1](https://github.com/newObjectccc/vtabs/screenshot/1.png)
+![2](https://github.com/newObjectccc/vtabs/screenshot/2.png)
+![3](https://github.com/newObjectccc/vtabs/screenshot/3.png)
+![4](https://github.com/newObjectccc/vtabs/screenshot/4.png)
+![5](https://github.com/newObjectccc/vtabs/screenshot/5.png)
+
 ## TODO
 
 vite v5.1.4 building for production...
