@@ -1,7 +1,7 @@
 {
   "name": "Vtabs",
   "version": "1.0.0",
-  "description": "Vtabs provide the vertical tabs for the chrome browser",
+  "description": "Vtabs provide a vertical list on side panel to manage your tabs",
   "action": {
     "default_title": "Vtabs"
   },
@@ -9,6 +9,10 @@
     "service_worker": "background.js"
   },
   "host_permissions": ["http://*/*", "https://*/*"],
+  "icon": {
+    "48": "images/48.png",
+    "128": "images/128.png"
+  },
   "icons": {
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"

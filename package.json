@@ -2,8 +2,7 @@
   "name": "vtabs",
   "private": true,
   "version": "1.0.0",
-  "icon": "",
-  "description": "",
+  "description": "provide a vertical list on side panel to manage your tabs",
   "type": "module",
   "scripts": {
     "start": "npx open-cli chrome://extensions chrome && tsc && vite build",
