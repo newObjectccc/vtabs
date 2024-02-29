@@ -47,7 +47,7 @@ function App() {
   }, []);
 
   return (
-    <ul className="p-2 h-lvh w-lvw text-slate-50 bg-[#3B3B3B]">
+    <ul className="p-2 h-lvh w-lvw text-slate-50 bg-[#3B3B3B] overflow-y-auto">
       {tabList?.map((tab) => (
         <li
           className={`flex flex-row items-center flex-1 rounded-md mb-1 p-2 hover:bg-[#454545] ${tab.active ? 'bg-[#4D4D4D] shadow-md shadow-slate-950' : ''}`}
