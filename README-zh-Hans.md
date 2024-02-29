@@ -22,11 +22,11 @@
 
 ## Screenshot
 
-![1](https://github.com/newObjectccc/vtabs/screenshot/1.png)
-![2](https://github.com/newObjectccc/vtabs/screenshot/2.png)
-![3](https://github.com/newObjectccc/vtabs/screenshot/3.png)
-![4](https://github.com/newObjectccc/vtabs/screenshot/4.png)
-![5](https://github.com/newObjectccc/vtabs/screenshot/5.png)
+![1](https://github.com/newObjectccc/vtabs/blob/main/screenshot/1.png)
+![2](https://github.com/newObjectccc/vtabs/blob/main/screenshot/2.png)
+![3](https://github.com/newObjectccc/vtabs/blob/main/screenshot/3.png)
+![4](https://github.com/newObjectccc/vtabs/blob/main/screenshot/4.png)
+![5](https://github.com/newObjectccc/vtabs/blob/main/screenshot/5.png)
 
 ## TODO
 
