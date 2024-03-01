@@ -14,7 +14,7 @@
     "128": "images/icon-128.png"
   },
   "manifest_version": 3,
-  "permissions": ["sidePanel", "tabs"],
+  "permissions": ["sidePanel", "windows", "tabs"],
   "side_panel": {
     "default_path": "index.html"
   }
