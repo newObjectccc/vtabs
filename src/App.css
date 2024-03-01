@@ -5,7 +5,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -36,10 +36,14 @@ body {
   background: linear-gradient(to left, #3b3b3b 10%, transparent 100%);
 }
 
+.wrapper:hover .text-blur::after {
+  display: none;
+}
+
 .close {
   position: relative;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 11px;
   z-index: 999;
 }
 
@@ -53,7 +57,7 @@ body {
   position: absolute;
   top: 0;
   right: 8px;
-  height: 10px;
+  height: 11px;
   width: 2px;
   background-color: #fff;
 }
