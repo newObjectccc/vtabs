@@ -76,7 +76,7 @@ function App() {
                     onClick={() => changeActiveTab(tab.id!)}
                   >
                     <motion.li
-                      className={`flex flex-row items-center rounded-md mb-1 p-2 wrapper hover:bg-[#454545] ${
+                      className={`flex select-none flex-row items-center rounded-md mb-1 p-2 wrapper hover:bg-[#454545] ${
                         tab.active ? 'bg-[#4D4D4D] shadow-md shadow-slate-950' : ''
                       }`}
                       whileHover={{ scale: 1.11 }}
