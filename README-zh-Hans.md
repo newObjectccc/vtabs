@@ -1,6 +1,6 @@
 # chrome-extension-boilerplate
 
-## 基于 React18，TypeScript，Vite，NextUI 的 Manifest Version 3 的谷歌浏览器插件开发木板
+## 基于 React18，TypeScript，Vite，NextUI 的 Manifest Version 3 的谷歌浏览器插件开发模板
 
 ## 功能
 
