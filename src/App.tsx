@@ -11,8 +11,9 @@ function App() {
     chrome.tabs.update(tabId, { active: true });
   };
 
-  const removeTab = (tabId: number) => {
+  const removeTab = (tabId: number, evt: React.MouseEvent) => {
     chrome.tabs.remove(tabId);
+    evt.stopPropagation();
   };
 
   useEffect(() => {
@@ -108,7 +109,7 @@ function App() {
                       >
                         {tab.title}
                       </div>
-                      <div className="close" onClick={() => removeTab(tab.id!)}></div>
+                      <div className="close" onClick={(evt) => removeTab(tab.id!, evt)}></div>
                     </motion.li>
                   </div>
                 )}
