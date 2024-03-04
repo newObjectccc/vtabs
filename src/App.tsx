@@ -23,7 +23,7 @@ function App() {
     });
 
     const onTabsUpdated = (_tabId: number, changeInfo: chrome.tabs.TabChangeInfo) => {
-      if (changeInfo.status === 'complete') {
+      if (['complete', 'loading'].includes(changeInfo.status ?? '')) {
         tabs.query({ currentWindow: true }, (tabs) => {
           setTabList((prev) => {
             // if new tab is opened
