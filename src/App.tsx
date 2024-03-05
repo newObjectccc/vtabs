@@ -11,6 +11,11 @@ function App() {
     chrome.tabs.update(tabId, { active: true });
   };
 
+  const moveTab = (tabIds: number | number[], idx: number) => {
+    const ids = Array.isArray(tabIds) ? tabIds : [tabIds];
+    chrome.tabs.move(ids, { index: idx });
+  };
+
   const removeTab = (tabId: number, evt: React.MouseEvent) => {
     chrome.tabs.remove(tabId);
     evt.stopPropagation();
@@ -26,8 +31,6 @@ function App() {
       if (['complete', 'loading'].includes(changeInfo.status ?? '')) {
         tabs.query({ currentWindow: true }, (tabs) => {
           setTabList((prev) => {
-            // if new tab is opened
-            if (prev.length < tabs.length) return prev.concat([tabs.find((t) => t.id === _tabId)!]);
             // if tab is updated
             return prev.map((tab) =>
               tab.id === _tabId ? tabs.find((t) => t.id === _tabId)! : tab
@@ -50,15 +53,20 @@ function App() {
         );
       });
     };
+    const onTabsCreated = (tab: chrome.tabs.Tab) => {
+      setTabList((prev) => prev.concat([tab]));
+    };
 
     tabs.onRemoved.addListener(onTabsRemoved);
     tabs.onUpdated.addListener(onTabsUpdated);
     tabs.onActivated.addListener(onTabsActived);
+    tabs.onCreated.addListener(onTabsCreated);
 
     return () => {
       tabs.onUpdated.removeListener(onTabsUpdated);
       tabs.onRemoved.removeListener(onTabsRemoved);
       tabs.onActivated.removeListener(onTabsActived);
+      tabs.onCreated.removeListener(onTabsCreated);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -69,6 +77,7 @@ function App() {
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
     setTabList(items);
+    moveTab(reorderedItem.id!, result.destination.index);
   };
 
   return (
