@@ -27,20 +27,17 @@ function App() {
       setTabList(tabs);
     });
 
-    const onTabsUpdated = (_tabId: number, changeInfo: chrome.tabs.TabChangeInfo) => {
+    const onTabsUpdated = (tabId: number, changeInfo: chrome.tabs.TabChangeInfo) => {
       if (['complete', 'loading'].includes(changeInfo.status ?? '')) {
         tabs.query({ currentWindow: true }, (tabs) => {
-          setTabList((prev) => {
-            // if tab is updated
-            return prev.map((tab) =>
-              tab.id === _tabId ? tabs.find((t) => t.id === _tabId)! : tab
-            );
-          });
+          setTabList((prev) =>
+            prev.map((tab) => (tab.id === tabId ? tabs.find((t) => t.id === tabId)! : tab))
+          );
         });
       }
     };
-    const onTabsRemoved = (_tabId: number) => {
-      setTabList((prev) => prev?.filter((tab) => tab.id !== _tabId));
+    const onTabsRemoved = (tabId: number) => {
+      setTabList((prev) => prev?.filter((tab) => tab.id !== tabId));
     };
     const onTabsActived = (activeInfo: { tabId: number; windowId: number }) => {
       tabs.query({ currentWindow: true }, () => {
