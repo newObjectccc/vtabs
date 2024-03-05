@@ -1,6 +1,8 @@
-# chrome-extension-boilerplate
+# <img width="64" alt="icon-128" src="https://github.com/newObjectccc/vtabs/assets/42132586/79b49869-85e7-4de2-b8a4-41db7f1eff30">
 
-## 基于 React18，TypeScript，Vite，NextUI 的 Manifest Version 3 的谷歌浏览器插件开发模板
+## Vtab
+
+提供一种在SidePanel的垂直方式管理你的chrome浏览器tabs
 
 ## 功能
 
