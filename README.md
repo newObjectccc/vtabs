@@ -1,6 +1,8 @@
-# chrome-extension-boilerplate
+# <img width="64" alt="icon-128" src="https://github.com/newObjectccc/vtabs/assets/42132586/79b49869-85e7-4de2-b8a4-41db7f1eff30">
 
-## Chrome Extension (MV3) Boilerplate with React18 & TypeScript & Vite & NextUI
+## Vtab
+
+provide a vertical way to manage your chrome tabs.
 
 English | [简体中文](https://github.com/newObjectccc/vtabs/blob/main/README-zh-Hans.md)
 
