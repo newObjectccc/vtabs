@@ -7,8 +7,16 @@ import './App.css';
 function App() {
   const [tabList, setTabList] = useState<chrome.tabs.Tab[]>([]);
 
-  const changeActiveTab = (tabId: number) => {
-    chrome.tabs.update(tabId, { active: true });
+  const changeActiveTab = (tab: chrome.tabs.Tab) => {
+    const { id } = tab;
+    try {
+      chrome.tabs.update(id!, { active: true });
+    } catch (error) {
+      const { url } = tab;
+      chrome.tabs.query({ currentWindow: true, url }, (tabs) => {
+        tabs && chrome.tabs.update(tabs[0].id!, { active: true });
+      });
+    }
   };
 
   const moveTab = (tabIds: number | number[], idx: number) => {
@@ -94,7 +102,7 @@ function App() {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     className={`w-11/12`}
-                    onClick={() => changeActiveTab(tab.id!)}
+                    onClick={() => changeActiveTab(tab)}
                   >
                     <motion.li
                       className={`flex select-none flex-row items-center rounded-md mb-1 p-2 wrapper hover:bg-[#454545] ${
