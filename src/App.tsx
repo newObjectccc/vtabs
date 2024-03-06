@@ -14,7 +14,7 @@ function App() {
     } catch (error) {
       const { url } = tab;
       chrome.tabs.query({ currentWindow: true, url }, (tabs) => {
-        tabs && chrome.tabs.update(tabs[0].id!, { active: true });
+        tabs.length > 0 && chrome.tabs.update(tabs[0].id!, { active: true });
       });
     }
   };
