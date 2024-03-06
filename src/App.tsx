@@ -29,49 +29,50 @@ function App() {
     evt.stopPropagation();
   };
 
-  useEffect(() => {
-    const tabs = chrome.tabs;
-    tabs.query({ currentWindow: true }, (tabs) => {
+  const setTabsListByQuery = () => {
+    chrome.tabs.query({ currentWindow: true }, (tabs) => {
       setTabList(tabs);
     });
+  };
 
-    const onTabsUpdated = (tabId: number, changeInfo: chrome.tabs.TabChangeInfo) => {
-      if (['complete', 'loading'].includes(changeInfo.status ?? '')) {
-        tabs.query({ currentWindow: true }, (tabs) => {
-          setTabList((prev) =>
-            prev.map((tab) => (tab.id === tabId ? tabs.find((t) => t.id === tabId)! : tab))
-          );
-        });
-      }
-    };
-    const onTabsRemoved = (tabId: number) => {
-      setTabList((prev) => prev?.filter((tab) => tab.id !== tabId));
-    };
-    const onTabsActived = (activeInfo: { tabId: number; windowId: number }) => {
-      tabs.query({ currentWindow: true }, () => {
-        setTabList((prev) =>
-          prev.map((tab) => {
-            tab.active = false;
-            if (tab.id === activeInfo.tabId) tab.active = true;
-            return tab;
-          })
-        );
-      });
-    };
-    const onTabsCreated = (tab: chrome.tabs.Tab) => {
-      setTabList((prev) => prev.concat([tab]));
-    };
+  const onTabsCreated = (tab: chrome.tabs.Tab) => {
+    setTabList((prev) => prev.concat([tab]));
+  };
+  const onTabsRemoved = (tabId: number) => {
+    setTabList((prev) => prev?.filter((tab) => tab.id !== tabId));
+  };
+  const onTabsActived = (activeInfo: { tabId: number; windowId: number }) => {
+    chrome.tabs.query({ currentWindow: true }, () => {
+      setTabList((prev) =>
+        prev.map((tab) => {
+          tab.active = false;
+          if (tab.id === activeInfo.tabId) tab.active = true;
+          return tab;
+        })
+      );
+    });
+  };
+
+  useEffect(() => {
+    const tabs = chrome.tabs;
+    setTabsListByQuery();
 
     tabs.onRemoved.addListener(onTabsRemoved);
-    tabs.onUpdated.addListener(onTabsUpdated);
+    tabs.onUpdated.addListener(setTabsListByQuery);
     tabs.onActivated.addListener(onTabsActived);
     tabs.onCreated.addListener(onTabsCreated);
+    tabs.onDetached.addListener(setTabsListByQuery);
+    tabs.onReplaced.addListener(setTabsListByQuery);
+    tabs.onMoved.addListener(setTabsListByQuery);
 
     return () => {
-      tabs.onUpdated.removeListener(onTabsUpdated);
       tabs.onRemoved.removeListener(onTabsRemoved);
+      tabs.onUpdated.removeListener(setTabsListByQuery);
       tabs.onActivated.removeListener(onTabsActived);
       tabs.onCreated.removeListener(onTabsCreated);
+      tabs.onDetached.removeListener(setTabsListByQuery);
+      tabs.onReplaced.removeListener(setTabsListByQuery);
+      tabs.onMoved.removeListener(setTabsListByQuery);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
