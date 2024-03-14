@@ -6,11 +6,10 @@
 
 ## 功能
 
-- ✨ 通过监控你的src目录下的代码触发编译更新dist代码
-- 💥 基于Vite@5.1
-- 💫 使用NextUI@2.2
-- 🧨 使用Manifest V3.
-- 💖 使用TypeScript
+- ✨ 通过垂直的SidePanel视图管理你的tabs
+- 💥 可拖拽排序
+- 💫 漂亮的UI
+- 🧨 丝滑的动效
 
 ## 使用说明
 
