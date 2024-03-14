@@ -8,11 +8,10 @@ English | [简体中文](https://github.com/newObjectccc/vtabs/blob/main/README-
 
 ## Feature
 
-- ✨ Watch your code and build your extension code to dist.
-- 💥 Vite@5.1 supported.
-- 💫 Beauty UI library NextUI@2.2.
-- 🧨 This boilerplate adopts Manifest V3.
-- 💖 TypeScript supported.
+- ✨ Virtical view to manage your tabs.
+- 💥 Draggleable by React-beautiful-dnd.
+- 💫 Beauty UI by NextUI.
+- 🧨 Smooth animate by Framer-Motion.
 
 ## Usage
 
