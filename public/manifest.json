@@ -1,6 +1,6 @@
 {
   "name": "Vtabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vtabs provide a vertical list on side panel to manage your tabs",
   "action": {
     "default_title": "Vtabs"
