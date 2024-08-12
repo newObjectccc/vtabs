@@ -1,4 +1,4 @@
-import { Image } from '@nextui-org/react';
+import { Image, Spinner } from '@nextui-org/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, DropResult, Droppable } from 'react-beautiful-dnd';
@@ -112,13 +112,18 @@ function App() {
                       whileHover={{ scale: 1.11 }}
                       whileTap={{ scale: 1.05 }}
                     >
-                      <Image
-                        alt="nextui logo"
-                        height={18}
-                        radius="sm"
-                        src={tab.favIconUrl}
-                        width={18}
-                      />
+                      {tab.status === 'loading' ? (
+                        <Spinner size="sm" />
+                      ) : (
+                        <Image
+                          alt="nextui logo"
+                          height={18}
+                          radius="sm"
+                          src={tab.favIconUrl}
+                          width={18}
+                          fallbackSrc={chrome.runtime.getURL('images/icon-48.png')}
+                        />
+                      )}
                       <div
                         className={`flex-1 mx-2 overflow-hidden text-ellipsis cursor-grab ${tab.active ? '' : 'text-blur'}`}
                       >
